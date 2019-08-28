@@ -1,0 +1,47 @@
+.. image:: https://img.shields.io/badge/license-LGPL--3-blue.png
+   :target: https://www.gnu.org/licenses/lgpl
+   :alt: License: LGPL-3
+
+={{% for i in addon.name_camelwords %}}={{% endfor %}}=
+ {{{ addon.name_camelwords }}}
+={{% for i in addon.name_camelwords %}}={{% endfor %}}=
+
+{{{ addon.summary }}}
+
+Credits
+=======
+
+Contributors
+------------
+* `{{{ copyright.name }}} <https://it-projects.info/team/{{{ copyright.github }}}>`__
+
+Sponsors
+--------
+* `IT-Projects LLC <https://it-projects.info>`__
+
+Maintainers
+-----------
+* `IT-Projects LLC <https://it-projects.info>`__
+
+      To get a guaranteed support
+      you are kindly requested to purchase the module
+      at `odoo apps store <https://apps.odoo.com/apps/modules/{{{ addon.version }}}/{{{ addon.technical_name }}}/>`__.
+
+      Thank you for understanding!
+
+      `IT-Projects Team <https://www.it-projects.info/team>`__
+
+Further information
+===================
+
+Demo: http://runbot.it-projects.info/demo/{{{ addon.upstream }}}/{{{ addon.branch }}}
+
+HTML Description: https://apps.odoo.com/apps/modules/{{{ addon.version }}}/{{{ addon.technical_name }}}/
+
+Usage instructions: `<doc/index.rst>`_
+
+Changelog: `<doc/changelog.rst>`_
+
+Notifications on updates: `via Atom <https://github.com/it-projects-llc/{{{ addon.upstream }}}/commits/{{{ addon.branch }}}/{{{ addon.technical_name }}}.atom>`_, `by Email <https://blogtrottr.com/?subscribe=https://github.com/it-projects-llc/{{{ addon.upstream }}}/commits/{{{ addon.branch }}}/{{{ addon.technical_name }}}.atom>`_
+
+Tested on Odoo {{{ addon.version }}} {{{addon.odoo_sha }}}
