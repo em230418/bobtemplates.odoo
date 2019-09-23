@@ -1,0 +1,23 @@
+/*  Copyright {{{ copyright.year }}} {{{ copyright.name }}} <https://it-projects.info/team/{{{ copyright.github }}}>
+    License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl.html). */
+odoo.define('{{{ test.name_underscored }}}.tour', function (require) {
+    "use strict";
+
+    var tour = require("web_tour.tour");
+    var core = require('web.core');
+    var _t = core._t;
+
+    function initial_scenario() {
+        return [{
+            trigger: 'ul.o_menu_apps li.dropdown a.full',
+            content: _t("Show Apps Menu"),
+            position: 'bottom',
+        }];
+    }
+
+    var steps = [];
+    steps = steps.concat(initial_scenario());
+
+    tour.register('{{{ test.name_underscored }}}_tour', { test: true, url: '/' }, steps);
+
+});

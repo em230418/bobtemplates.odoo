@@ -8,7 +8,7 @@ from setuptools import find_packages, setup
 setup(
     name="bobtemplates.odoo",
     use_scm_version=True,
-    description="mr.bob templates for Odoo projects",
+    description="mr.bob templates for Odoo projects (IT-Projects Edition)",
     long_description="\n".join((open("README.rst").read(), open("CHANGES.rst").read())),
     classifiers=[
         "Development Status :: 5 - Production/Stable",
@@ -22,7 +22,7 @@ setup(
     license="LGPLv3",
     author="ACSONE SA/NV",
     author_email="info@acsone.eu",
-    url="http://github.com/acsone/bobtemplates.odoo",
+    url="https://github.com/it-projects-llc/bobtemplates.odoo",
     install_requires=["mr.bob"],
     packages=find_packages(exclude=["tests"]),
     # TODO: bobtemplates.odoo should be a ns package too but that breaks mr.bob

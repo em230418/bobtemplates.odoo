@@ -32,4 +32,4 @@ Usage
 Uninstallation
 ==============
 
-{Optional section for uninstallation notes. Delete it if you don't have
+{Optional section for uninstallation notes. Delete it if you don't have notes for uninstallation.}

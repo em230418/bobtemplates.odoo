@@ -1,0 +1,13 @@
+{{% if odoo.version < 11 %}}# -*- coding: utf-8 -*-
+{{% endif %}}
+# Copyright {{{ copyright.year }}} {{{ copyright.name }}} <https://it-projects.info/team/{{{ copyright.github }}}>
+# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
+
+from odoo import http
+from odoo.http import request
+
+
+class {{{ controller.name_camelcased }}}(http.Controller):
+    @http.route('/hello/world', auth='public')
+    def index(self, **kw):
+        return "Hello, world"
