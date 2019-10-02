@@ -1,9 +1,9 @@
 {{% if odoo.version < 11 %}}# -*- coding: utf-8 -*-
 {{% endif -%}}
-# Copyright {{{ copyright.year }}} {{{ copyright.name }}}
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+# Copyright {{{ copyright.year }}} {{{ copyright.name }}} <https://it-projects.info/team/{{{ copyright.github }}}>
+# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 
-from {{% if odoo.version >= 10 %}}odoo{{% else %}}openerp{{% endif %}} import api, fields, models, _
+from odoo import api, fields, models
 
 
 class {{{ model.name_camelcased }}}(models.Model):
@@ -12,7 +12,5 @@ class {{{ model.name_camelcased }}}(models.Model):
     _inherit = '{{{ model.name_dotted }}}'
 {{% else %}}
     _name = '{{{ model.name_dotted }}}'
-    _description = '{{{ model.name_camelwords }}}'  # TODO
-
-    name = fields.Char()
+    _description = '{{{ model.description }}}'
 {{% endif %}}

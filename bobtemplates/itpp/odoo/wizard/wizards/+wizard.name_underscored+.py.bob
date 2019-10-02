@@ -1,9 +1,9 @@
 {{% if odoo.version < 11 %}}# -*- coding: utf-8 -*-
-{{% endif -%}}
-# Copyright {{{ copyright.year }}} {{{ copyright.name }}}
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+{{% endif %}}
+# Copyright {{{ copyright.year }}} {{{ copyright.name }}} <https://it-projects.info/team/{{{ copyright.github }}}>
+# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 
-from {{% if odoo.version >= 10 %}}odoo{{% else %}}openerp{{% endif %}} import api, fields, models, _
+from odoo import api, fields, models
 
 
 class {{{ wizard.name_camelcased }}}(models.TransientModel):
@@ -12,20 +12,5 @@ class {{{ wizard.name_camelcased }}}(models.TransientModel):
     _inherit = '{{{ wizard.name_dotted }}}'
 {{% else %}}
     _name = '{{{ wizard.name_dotted }}}'
-
-    name = fields.Char()
-
-    @api.multi
-    def doit(self):
-        for wizard in self:
-            # TODO
-            pass
-        action = {
-            'type': 'ir.actions.act_window',
-            'name': 'Action Name',  # TODO
-            'res_model': 'result.model',  # TODO
-            'domain': [('id', '=', result_ids)],  # TODO
-            'view_mode': 'form,tree',
-        }
-        return action
+    _description = '{{{ wizard.description }}}'
 {{% endif %}}
