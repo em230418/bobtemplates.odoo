@@ -17,7 +17,7 @@ class TestUi(odoo.tests.HttpCase):
 {{% endif %}}
 {{% if test.tour %}}
         self.{{% if odoo.version < 12 %}}browser{{% else %}}phantom{{% endif %}}_js('/',
-                        "odoo.__DEBUG__.services['web_tour.tour'].run('{{{ test.name_underscored }}}_tour'), 500",
+                        "odoo.__DEBUG__.services['web_tour.tour'].run('{{{ test.name_underscored }}}_tour', 500)",
                         "odoo.__DEBUG__.services['web_tour.tour'].tours.{{{ test.name_underscored }}}_tour.ready",
                         login=test_login)
 {{% endif %}}

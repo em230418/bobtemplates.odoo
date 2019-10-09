@@ -72,6 +72,14 @@ Installation
 
     pip install git+https://github.com/it-projects-llc/bobtemplates.odoo.git@master
 
+* For update (reinstalling): uninstall and install:
+
+  .. code:: shell
+
+    pip uninstall -y bobtemplates.odoo
+    pip install git+https://github.com/it-projects-llc/bobtemplates.odoo.git@master
+
+
 Configuration
 ~~~~~~~~~~~~~
 * List of public variables (also exists a list (not represented here) of a private variables, which values corresponds with public variables values):

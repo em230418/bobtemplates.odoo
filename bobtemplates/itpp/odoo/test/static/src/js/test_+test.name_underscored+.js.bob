@@ -9,9 +9,16 @@ odoo.define('{{{ test.name_underscored }}}.tour', function (require) {
 
     function initial_scenario() {
         return [{
+{{% if test.assets == 'website.assets_frontend' %}}
+            trigger: "a[href*='/my/home']:first",
+            content: _t("<p>Click to enter 'My Account'</p>"),
+            position: "bottom",
+{{% endif %}}
+{{% if test.assets == 'web.assets_backend' %}}
             trigger: 'ul.o_menu_apps li.dropdown a.full',
             content: _t("Show Apps Menu"),
             position: 'bottom',
+{{% endif %}}
         }];
     }
 
