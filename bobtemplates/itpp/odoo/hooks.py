@@ -81,15 +81,15 @@ def _add_in_file_text(configurator, package, to_file, import_string):
     else:
         os.makedirs(os.path.split(init_path)[0],exist_ok=True)
         if to_file == '__init__.py':
-            import_string = "# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).\n\n" + import_string
+            import_string = "# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html)\n\n{}\n".format(import_string)
         if to_file == 'assets.xml':
-            import_string = ("<!-- Copyright {} {} <https://it-projects.info/team/{}>\n"
+            import_string = ("<!-- Copyright {0} {1} <https://it-projects.info/team/{2}>\n"
                              "     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html). -->\n"
-                             "<odoo>\n".format(
+                             "<odoo>\n{3}\n</odoo>\n").format(
                                                 variables["copyright.year"],
                                                 variables["copyright.name"],
-                                                variables["copyright.github"]) + import_string + 
-                            "\n</odoo>\n")
+                                                variables["copyright.github"],
+                                                import_string)
         init = ""
         
     if import_string not in init.split("\n"):
@@ -292,7 +292,7 @@ def pre_render_css(configurator):
     category = variables["addon.category"]
     if category == "pos":
         variables["css.inherit"] = "point_of_sale.assets"
-    elif category in ["website, website_sale"]:
+    elif category in ["website", "website_sale"]:
         variables["css.inherit"] = "website.assets_frontend"
     else:
         variables["css.inherit"] = "web.assets_backend"
@@ -327,7 +327,7 @@ def pre_render_js(configurator):
     category = variables["addon.category"]
     if category == "pos":
         variables["js.inherit"] = "point_of_sale.assets"
-    elif category in ["website, website_sale"]:
+    elif category in ["website", "website_sale"]:
         variables["js.inherit"] = category + ".assets_frontend"
     else:
         variables["js.inherit"] = "web.assets_backend"
@@ -360,14 +360,10 @@ def pre_render_test(configurator):
     _load_manifest(configurator)  # check manifest is present
     variables = configurator.variables
     category = variables["addon.category"]
-    if category in ["website, website_sale"]:
+    if category in ["website", "website_sale"]:
         variables["test.assets"] =  "website.assets_frontend"
     else:
         variables["test.assets"] = "web.assets_backend"
-    # elif category in ["website", "website_sale"]:
-    #     variables["test.inherit"] = category + ".assets_frontend"
-    # else:
-    #     variables["test.inherit"] = ".assets_frontend"
     variables["odoo.version"] = int(variables["addon.version"])
     variables["addon.name"] = os.path.basename(
         os.path.normpath(configurator.target_directory)
@@ -376,7 +372,7 @@ def pre_render_test(configurator):
 def post_render_test(configurator):
     variables = configurator.variables
     script_text = """
-    <template id="{0}_assets_{1}" inherit_id="website.assets_{1}">
+    <template id="{1}" inherit_id="{1}">
         <xpath expr="." position="inside">
             <script type="text/javascript" src="/{2}/static/src/js/test_{0}.js"></script>
         </xpath>
