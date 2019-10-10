@@ -372,7 +372,7 @@ def pre_render_test(configurator):
 def post_render_test(configurator):
     variables = configurator.variables
     script_text = """
-    <template id="{1}" inherit_id="{1}">
+    <template id="test_{0}" inherit_id="{1}">
         <xpath expr="." position="inside">
             <script type="text/javascript" src="/{2}/static/src/js/test_{0}.js"></script>
         </xpath>
