@@ -101,7 +101,7 @@ Configuration
         * ``addon.dependency``: list of modules in manifest in ``depends``-field
             * e.g.: ``mail, website, pos``
         * ``addon.upstream``: name of repository
-            * [ ``access-addons`` | ``addons-dev`` | ``l10n-addons`` | ``mail-addons`` | ``misc-addons`` | ``odoo-saas-tools`` | ``odoo-telegram`` | ``pos-addons`` | ``rental-addons`` | ``website-addons`` ]
+            * [ ``access-addons`` | ``l10n-addons`` | ``mail-addons`` | ``misc-addons`` | ``odoo-saas-tools`` | ``odoo-telegram`` | ``pos-addons`` | ``rental-addons`` | ``website-addons`` ]
         * ``addon.summary``: short description of module in ``README.rst``
         * ``addon.description``: Detailed description of module in ``README.rst``
 
@@ -180,7 +180,7 @@ Configuration
             addon.version = 12
             addon.category = eCommerce
             addon.technical_category = pos
-            addon.upstream = addons-dev
+            addon.upstream = pos-addons
             addon.name = Name For Testing
             addon.technical_name = web_module_things
             addon.summary = little description of what module can do
