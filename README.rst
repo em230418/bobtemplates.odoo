@@ -171,8 +171,8 @@ Configuration
             ;###
             ;### copyright
             ;###
-            copyright.name = Anvar Kildebekov
-            copyright.github = fedoranvar
+            copyright.name = John Doe
+            copyright.github = johnnydoey
             copyright.year = 2019
             ;###
             ;### addon
