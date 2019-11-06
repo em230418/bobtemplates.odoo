@@ -67,8 +67,8 @@ def _insert_manifest_item(configurator, key, item):
     with _open_file(configurator, "__manifest__.py", "w") as f:
         f.write(manifest)
 
-def _add_in_file_text(configurator, package, to_file, import_string):
-    init_path = os.path.join(configurator.target_directory, package, to_file)
+def _add_in_file_text(configurator, dir_path, to_file, import_string):
+    init_path = os.path.join(configurator.target_directory, dir_path, to_file)
     variables = configurator.variables
     flag = "a"
     if os.path.exists(init_path):
@@ -79,6 +79,7 @@ def _add_in_file_text(configurator, package, to_file, import_string):
                 idx = init.index("</odoo>")
                 import_string = init[:idx] + import_string + "\n" + init[idx:]
     else:
+        init = ""
         os.makedirs(os.path.split(init_path)[0],exist_ok=True)
         if to_file == '__init__.py':
             import_string = "# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html)\n\n{}\n".format(import_string)
@@ -90,8 +91,9 @@ def _add_in_file_text(configurator, package, to_file, import_string):
                                                 variables["copyright.name"],
                                                 variables["copyright.github"],
                                                 import_string)
-        init = ""
-        
+        if to_file == 'ir.model.access.csv':
+            import_string = ("id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink{0}".format(import_string))
+
     if import_string not in init.split("\n"):
         open(init_path, flag).write(import_string)
 
@@ -107,7 +109,7 @@ def pre_render_addon(configurator):
     variables = configurator.variables
     variables["odoo.version"] = int(variables["addon.version"])
     variables["addon.name_camelwords"] = _underscored_to_camelwords(
-        variables["addon.name"]
+        _spaced_to_underscored_and_lowered(variables["addon.name"])
     )
     #
     # addon defaults
@@ -242,15 +244,17 @@ def pre_render_model(configurator):
 
 def post_render_model(configurator):
     variables = configurator.variables
+    security_path = "security/ir.model.access.csv"
     # make sure the models package is imported from the addon root
     _add_in_file_text(configurator, "", "__init__.py", "from . import models")
     # add new model import in __init__.py
     import_string = "from . import {}".format(variables["model.name_underscored"])
     _add_in_file_text(configurator, "models", "__init__.py", import_string)
-    security_path = "security/{}_ir.model.access.csv".format(variables["model.name_underscored"])
     if not variables["model.security"]:
         _delete_file(configurator, security_path)
     else:
+        import_string = "\naccess_{0},access_{0},model_{0},base.group_user,1,1,1,1)".format(variables["model.name_underscored"])
+        _add_in_file_text(configurator, "security", "ir.model.access.csv", import_string)
         _insert_manifest_item(configurator, "data", security_path)
     # show message if any
     show_message(configurator)
