@@ -15,7 +15,9 @@ Credits
 
 Contributors
 ------------
-* `{{{ copyright.name }}} <https://it-projects.info/team/{{{ copyright.github }}}>`__
+* `{{{ copyright.name }}} <https://it-projects.info/team/{{{ copyright.github }}}>`__:
+
+      * :one::zero: init version of the module
 
 Sponsors
 --------
