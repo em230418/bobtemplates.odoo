@@ -82,10 +82,10 @@ def _add_in_file_text(configurator, dir_path, to_file, import_string):
         init = ""
         os.makedirs(os.path.split(init_path)[0],exist_ok=True)
         if to_file == '__init__.py':
-            import_string = "# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html)\n\n{}\n".format(import_string)
+            import_string = "# License MIT (https://opensource.org/licenses/MIT).\n\n{}\n".format(import_string)
         if to_file == 'assets.xml':
             import_string = ("<!-- Copyright {0} {1} <https://it-projects.info/team/{2}>\n"
-                             "     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html). -->\n"
+                             "     License MIT (https://opensource.org/licenses/MIT). -->\n"
                              "<odoo>\n{3}\n</odoo>\n").format(
                                                 variables["copyright.year"],
                                                 variables["copyright.name"],
@@ -250,10 +250,8 @@ def post_render_model(configurator):
     # add new model import in __init__.py
     import_string = "from . import {}".format(variables["model.name_underscored"])
     _add_in_file_text(configurator, "models", "__init__.py", import_string)
-    if not variables["model.security"]:
-        _delete_file(configurator, security_path)
-    else:
-        import_string = "\naccess_{0},access_{0},model_{0},base.group_user,1,1,1,1)".format(variables["model.name_underscored"])
+    if variables["model.security"]:
+        import_string = "\naccess_{0},access_{0},model_{0},base.group_user,1,1,1,1".format(variables["model.name_underscored"])
         _add_in_file_text(configurator, "security", "ir.model.access.csv", import_string)
         _insert_manifest_item(configurator, "data", security_path)
     # show message if any
