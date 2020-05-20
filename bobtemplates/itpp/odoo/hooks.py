@@ -314,7 +314,7 @@ def post_render_css(configurator):
                variables["css.inherit"],
                variables["addon.name"])
     _add_in_file_text(configurator, "views", "assets.xml", script_text)
-    xml_path = "views/assets.xml".format(variables["view.name_underscored"])
+    xml_path = "views/assets.xml".format(variables["css.name_underscored"])
     _insert_manifest_item(configurator, "data", xml_path)
     show_message(configurator)
 
