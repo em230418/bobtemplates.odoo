@@ -9,8 +9,8 @@ from odoo import api, fields, models
 class {{{ model.name_camelcased }}}(models.{{{ model.name_dotted == "res.config.settings" and "Transient" or "" }}}Model):
 
 {{% if model.inherit: %}}
-    _inherit = '{{{ model.name_dotted }}}'
+    _inherit = "{{{ model.name_dotted }}}"
 {{% else %}}
-    _name = '{{{ model.name_dotted }}}'
-    _description = '{{{ model.description }}}'
+    _name = "{{{ model.name_dotted }}}"
+    _description = "{{{ model.description }}}"
 {{% endif %}}
