@@ -62,6 +62,7 @@ def _insert_manifest_item(configurator, key, item):
     if item in ast.literal_eval(manifest).get(key, []):
         return
     pattern = """(["']{}["']:\\s*\\[)""".format(key)
+    # TODO: it new item should added to the end of list
     repl = """\\1\n        '{}',""".format(item)
     manifest = re.sub(pattern, repl, manifest, re.MULTILINE)
     with _open_file(configurator, "__manifest__.py", "w") as f:
