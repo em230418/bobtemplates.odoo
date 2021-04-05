@@ -1,7 +1,5 @@
 {{% if odoo.version < 11 %}}# -*- coding: utf-8 -*-
 {{% endif -%}}
-# Copyright {{{ copyright.year }}} {{{ copyright.name }}} <https://it-projects.info/team/{{{ copyright.github }}}>
-# License MIT (https://opensource.org/licenses/MIT).
 
 from odoo import api, fields, models
 

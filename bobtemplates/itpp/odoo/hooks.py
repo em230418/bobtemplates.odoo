@@ -82,11 +82,8 @@ def _add_in_file_text(configurator, dir_path, to_file, import_string):
     else:
         init = ""
         os.makedirs(os.path.split(init_path)[0],exist_ok=True)
-        if to_file == '__init__.py':
-            import_string = "# License MIT (https://opensource.org/licenses/MIT).\n\n{}\n".format(import_string)
         if to_file == 'assets.xml':
-            import_string = ("<!-- Copyright {0} {1} <https://it-projects.info/team/{2}>\n"
-                             "     License MIT (https://opensource.org/licenses/MIT). -->\n"
+            import_string = (""
                              "<odoo>\n{3}\n</odoo>\n").format(
                                                 variables["copyright.year"],
                                                 variables["copyright.name"],

@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright {{{ copyright.year }}} {{{ copyright.name }}} <https://it-projects.info/team/{{{ copyright.github }}}>
-     License MIT (https://opensource.org/licenses/MIT). -->
 <odoo>
 
     <record id="view_{{{wizard.name_underscored}}}_form" model="ir.ui.view">

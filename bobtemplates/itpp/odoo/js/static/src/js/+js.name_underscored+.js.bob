@@ -1,5 +1,3 @@
-/*  Copyright {{{ copyright.year }}} {{{ copyright.name }}} <https://it-projects.info/team/{{{ copyright.github }}}>
-    License MIT (https://opensource.org/licenses/MIT). */
 odoo.define('{{{ addon.name }}}.{{{js.name_underscored}}}', function (require) {
     "use strict";
 });
