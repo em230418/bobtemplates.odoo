@@ -7,8 +7,8 @@ from odoo import api, fields, models
 class {{{ wizard.name_camelcased }}}(models.TransientModel):
 
 {{% if wizard.inherit: %}}
-    _inherit = '{{{ wizard.name_dotted }}}'
+    _inherit = "{{{ wizard.name_dotted }}}"
 {{% else %}}
-    _name = '{{{ wizard.name_dotted }}}'
-    _description = '{{{ wizard.description }}}'
+    _name = "{{{ wizard.name_dotted }}}"
+    _description = "{{{ wizard.description }}}"
 {{% endif %}}
