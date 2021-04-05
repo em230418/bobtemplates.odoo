@@ -119,13 +119,8 @@ def pre_render_addon(configurator):
     variables["copyright.year"] = datetime.date.today().year
     # [addon.branch] - name of git-branch
     variables["addon.branch"] = str(variables["odoo.version"])+ ".0"
-    # [addon.odoo_sha] -  If SHA of Odoo is not setted, then it will be defined by latest commit from odoo-repo
-    variables["addon.odoo_sha"] = re.search(r'\'(.*)\\n', str(
-            check_output(["git ls-remote https://github.com/odoo/odoo refs/heads/" +
-                          str(variables["odoo.version"])
-                          + ".0 | cut -f 1"], shell=True))).group(1)
 
-def post_render_addon(configurator):   
+def post_render_addon(configurator):
     category_list = [
         "access",
         "barcode",
