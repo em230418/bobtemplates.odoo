@@ -128,6 +128,7 @@ def post_render_addon(configurator):
         "misc",
         "pos",
         "saas",
+        "sync",
         "stock",
         "telegram",
         "website",
