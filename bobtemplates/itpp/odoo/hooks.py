@@ -285,7 +285,7 @@ def post_render_controller(configurator):
 def pre_render_css(configurator):
     _load_manifest(configurator)  # check manifest is present
     variables = configurator.variables
-    category = variables["addon.category"]
+    category = variables["addon.technical_category"]
     if category == "pos":
         variables["css.inherit"] = "point_of_sale.assets"
     elif category in ["website", "website_sale"]:
@@ -320,7 +320,7 @@ def post_render_css(configurator):
 def pre_render_js(configurator):
     _load_manifest(configurator)  # check manifest is present
     variables = configurator.variables
-    category = variables["addon.category"]
+    category = variables["addon.technical_category"]
     if category == "pos":
         variables["js.inherit"] = "point_of_sale.assets"
     elif category in ["website", "website_sale"]:
