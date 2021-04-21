@@ -417,7 +417,7 @@ def post_render_wizard(configurator):
     import_string = "from . import {}".format(variables["wizard.name_underscored"])
     _add_in_file_text(configurator, "wizards", "__init__.py", import_string)
     # views
-    wizard_path = "views/{}.xml".format(variables["wizard.name_underscored"])
+    wizard_path = "wizards/{}.xml".format(variables["wizard.name_underscored"])
     _insert_manifest_item(configurator, "data", wizard_path)
     # show message if any
     show_message(configurator)
