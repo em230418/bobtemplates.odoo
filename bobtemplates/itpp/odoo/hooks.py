@@ -355,7 +355,7 @@ def post_render_js(configurator):
 def pre_render_test(configurator):
     _load_manifest(configurator)  # check manifest is present
     variables = configurator.variables
-    category = variables["addon.category"]
+    category = variables["addon.technical_category"]
     if category in ["website", "website_sale"]:
         variables["test.assets"] =  "website.assets_frontend"
     else:
