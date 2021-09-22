@@ -93,7 +93,7 @@ def _add_in_file_text(configurator, dir_path, to_file, import_string):
             import_string = ("id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink{0}".format(import_string))
 
     if import_string not in init.split("\n"):
-        open(init_path, flag).write(import_string)
+        open(init_path, flag).write(import_string + "\n")
 
 def _rm_suffix(suffix, configurator, path):
     path = os.path.join(configurator.target_directory, path)
