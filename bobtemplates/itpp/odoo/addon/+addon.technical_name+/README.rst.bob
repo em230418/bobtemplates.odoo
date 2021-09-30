@@ -1,0 +1,25 @@
+={{% for i in addon.name_camelwords %}}={{% endfor %}}=
+ {{{ addon.name_camelwords }}}
+={{% for i in addon.name_camelwords %}}={{% endfor %}}=
+
+{{{ addon.summary }}}
+
+{{{ addon.description }}}
+
+Credits
+=======
+
+Contributors
+------------
+
+* `{{{ copyright.name }}} <https://github.com/{{{ copyright.github }}}>`__:
+
+Sponsors
+--------
+
+* `IT-Projects LLC <https://it-projects.info>`__
+
+Maintainers
+-----------
+
+* `IT-Projects LLC <https://it-projects.info>`__
