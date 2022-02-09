@@ -7,6 +7,7 @@
     "version": "{{{ odoo.version }}}.0.1.0.0",
     "author": "IT-Projects LLC, {{{ copyright.name }}}",
     "support": "it@it-projects.info",
+    "website": "https://www.it-projects.info",
     "license": "LGPL-3",
     "depends": [
     ],
