@@ -2,9 +2,7 @@
 {{% endif -%}}
 {
     "name": """{{{ addon.name }}}""",
-    "summary": """{{{ addon.summary }}}""",
-    "images": [],
-    "version": "{{{ odoo.version }}}.0.1.0.0",
+    "version": "{{{ odoo.version }}}.0.0.1.0",
     "author": "IT-Projects LLC, {{{ copyright.name }}}",
     "support": "it@it-projects.info",
     "website": "https://www.it-projects.info",
@@ -16,8 +14,10 @@
     ],
     "demo": [
     ],
+{{% if odoo.version < 15 %}}
     "qweb": [
     ],
+{{% endif %}}
 
     "post_load": None,
     "pre_init_hook": None,
