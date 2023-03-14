@@ -43,7 +43,7 @@ templates to use when developing Odoo addons.
 
         {addon.technical_name}/models/{model.name_underscored}.py
         {addon.technical_name}/models/__init__.py
-        {addon.technical_name}/security{model.name_underscored}_ir.model.access.csv
+        {addon.technical_name}/security/ir.model.access.csv
 
   * ``qweb`` :
 
@@ -69,7 +69,7 @@ Installation
 
   .. code:: shell
 
-    git clone git+https://github.com/em230418/bobtemplates.odoo.git@master
+    git clone https://github.com/em230418/bobtemplates.odoo.git
     cd bobtemplates.odoo
     python3 -m pip install -e .
 
