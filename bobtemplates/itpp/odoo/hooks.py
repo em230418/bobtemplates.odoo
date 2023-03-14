@@ -136,15 +136,6 @@ def post_render_addon(configurator):
     if variables["addon.dependency"]:
         for mod in variables["addon.dependency"].split(', '):
             _insert_manifest_item(configurator, "depends", mod)
-    # Handle icons in depends of technical_category
-    _rm_suffix(
-        "." + variables["addon.technical_category"],
-        configurator,
-        "static/description/icon.png." + variables["addon.technical_category"],
-    )
-    category_list.remove(variables["addon.technical_category"])
-    for ctgr in category_list:
-        _delete_file(configurator, "static/description/icon.png." + ctgr)
     # show message if any
     show_message(configurator)
 
