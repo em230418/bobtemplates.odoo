@@ -66,18 +66,12 @@ templates to use when developing Odoo addons.
   
 Installation
 ~~~~~~~~~~~~
-* Install via pip from github-repository:
 
   .. code:: shell
 
-    pip install git+https://github.com/it-projects-llc/bobtemplates.odoo.git@master
-
-* For update (reinstalling): uninstall and install:
-
-  .. code:: shell
-
-    pip uninstall -y bobtemplates.odoo
-    pip install git+https://github.com/it-projects-llc/bobtemplates.odoo.git@master
+    git clone git+https://github.com/em230418/bobtemplates.odoo.git@master
+    cd bobtemplates.odoo
+    python3 -m pip install -e .
 
 
 Configuration
