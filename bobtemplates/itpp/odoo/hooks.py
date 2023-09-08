@@ -403,12 +403,12 @@ def pre_render_wizard(configurator):
 def post_render_wizard(configurator):
     variables = configurator.variables
     # make sure the wizards package is imported from the addon root
-    _add_in_file_text(configurator, "", "__init__.py", "from . import wizards")
+    _add_in_file_text(configurator, "", "__init__.py", "from . import wizard")
     # add new model import in __init__.py
     import_string = "from . import {}".format(variables["wizard.name_underscored"])
-    _add_in_file_text(configurator, "wizards", "__init__.py", import_string)
+    _add_in_file_text(configurator, "wizard", "__init__.py", import_string)
     # views
-    wizard_path = "wizards/{}_views.xml".format(variables["wizard.name_underscored"])
+    wizard_path = "wizard/{}_views.xml".format(variables["wizard.name_underscored"])
     _insert_manifest_item(configurator, "data", wizard_path)
     # show message if any
     show_message(configurator)
