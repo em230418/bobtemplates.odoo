@@ -1,6 +1,6 @@
-={{% for i in addon.name_camelwords %}}={{% endfor %}}=
- {{{ addon.name_camelwords }}}
-={{% for i in addon.name_camelwords %}}={{% endfor %}}=
+={{% for i in addon.name %}}={{% endfor %}}=
+ {{{ addon.name }}}
+={{% for i in addon.name %}}={{% endfor %}}=
 
 {{{ addon.summary }}}
 
@@ -12,7 +12,7 @@ Credits
 Contributors
 ------------
 
-* `{{{ copyright.name }}} <https://github.com/{{{ copyright.github }}}>`__:
+* `{{{ copyright.name }}} <https://github.com/{{{ copyright.github }}}>`__
 
 Sponsors
 --------
