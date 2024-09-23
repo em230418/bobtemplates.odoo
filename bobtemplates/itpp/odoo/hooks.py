@@ -73,7 +73,7 @@ def _add_in_file_text(configurator, dir_path, to_file, import_string):
     variables = configurator.variables
     flag = "a"
     if os.path.exists(init_path):
-        with open(init_path, "U") as f:
+        with open(init_path, "r") as f:
             init = f.read()
             if to_file == 'assets.xml':
                 flag = "w"
